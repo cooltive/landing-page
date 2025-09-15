@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cooltive – Gerenciamento Inteligente de Cultivo</title>
+  <meta name="description" content="Cooltive: registre e gerencie todas as etapas do cultivo – sementes, atividades, fotos, colheita e estatísticas. Sincronização em nuvem no plano PRO." />
+  <meta name="keywords" content="agricultura, cultivo, app de cultivo, gestão agrícola, colheita, sementes, estatísticas" />
+  <meta property="og:title" content="Cooltive – App de Gerenciamento de Cultivo" />
+  <meta property="og:description" content="Controle sementes, atividades, fotos, colheita e estatísticas. Versão PRO com sincronização em nuvem." />
+  <meta property="og:image" content="assets/icon.png" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            primary: {
+              50: '#f2fbea', 100:'#e3f6d1', 200:'#c5eaa3', 300:'#a7de75', 400:'#89d247', 500:'#6cc71a', 600:'#56a80f', 700:'#43810c', 800:'#2e5908', 900:'#1d3904'
+            },
+            accent: {
+              50:'#fff9eb',100:'#ffeec6',200:'#ffdd8d',300:'#ffcb55',400:'#ffba1c',500:'#e6a100',600:'#b37900',700:'#805200',800:'#4e2d00',900:'#261600'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-hero { background: linear-gradient(140deg, #0f2f10 0%, #102b18 40%, #0c2012 100%); }
+    .grain { position: relative; }
+    .grain:before { content:''; position:absolute; inset:0; pointer-events:none; background:repeating-linear-gradient(45deg,rgba(255,255,255,0.03)0 2px,transparent 2px 4px); mix-blend-mode:overlay; }
+    .feature-icon { background: linear-gradient(135deg,var(--tw-gradient-stops)); }
+  </style>
+</head>
+<body class="bg-neutral-950 text-neutral-100 selection:bg-primary-400/40">
+  <!-- Navbar -->
+  <header class="fixed top-0 inset-x-0 z-40 backdrop-blur bg-neutral-950/70 border-b border-neutral-800/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center h-16">
+      <div class="flex items-center gap-2">
+        <img src="assets/icon.png" alt="Logo Cooltive" class="h-9 w-9 rounded" />
+        <span class="font-semibold text-lg tracking-tight">Cooltive</span>
+      </div>
+      <nav class="hidden md:flex ml-10 gap-8 text-sm font-medium">
+        <a href="#features" class="hover:text-primary-300 transition">Recursos</a>
+        <a href="#benefits" class="hover:text-primary-300 transition">Benefícios</a>
+        <a href="#pricing" class="hover:text-primary-300 transition">Planos</a>
+        <a href="#faq" class="hover:text-primary-300 transition">FAQ</a>
+      </nav>
+      <div class="ml-auto flex items-center gap-3">
+        <a href="#pricing" class="hidden sm:inline-block text-sm font-medium px-4 py-2 rounded-md border border-neutral-700 hover:border-primary-500/70 hover:text-primary-300 transition">Ver Planos</a>
+        <a href="https://play.google.com/store/apps/details?id=com.cooltive" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-neutral-900 px-4 py-2 rounded-md shadow focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-neutral-950">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 3.75A2.25 2.25 0 0 1 3.75 1.5h11.379a2.25 2.25 0 0 1 1.59.659l5.121 5.121a2.25 2.25 0 0 1 .66 1.59V20.25A2.25 2.25 0 0 1 20.25 22.5H3.75A2.25 2.25 0 0 1 1.5 20.25V3.75Zm12 0v4.5a.75.75 0 0 0 .75.75h4.5L13.5 3.75Z"/></svg>
+          Download</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="gradient-hero grain pt-32 pb-28 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top_left,rgba(108,199,26,0.35),transparent_60%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 flex flex-col gap-6">
+          <span class="inline-flex items-center gap-2 text-xs font-semibold tracking-wide uppercase text-primary-300/90 bg-primary-500/10 border border-primary-500/30 px-3 py-1 rounded-full w-fit">Gestão agrícola moderna</span>
+          <h1 class="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">Centralize e potencialize <span class="text-primary-400">todo o ciclo</span> do seu cultivo</h1>
+          <p class="text-neutral-300 text-lg leading-relaxed max-w-xl">Cooltive registra cada etapa: estoque de sementes, atividades nas plantas, irrigação, fotos, colheita e estatísticas avançadas. Organização e insights para decisões mais rentáveis.</p>
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="https://play.google.com/store/apps/details?id=com.cooltive" target="_blank" class="group inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-neutral-900 font-semibold text-sm shadow-lg shadow-primary-500/30 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-neutral-950">Baixar agora
+              <svg class="w-4 h-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+            <a href="#features" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-neutral-700 hover:border-primary-400/60 hover:text-primary-300 font-medium text-sm text-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-950">Ver recursos</a>
+          </div>
+          <div class="flex items-center gap-6 pt-4">
+            <div class="flex -space-x-2">
+              <img src="assets/icon.png" alt="Usuário" class="w-9 h-9 rounded-full border border-neutral-800" />
+              <img src="assets/icon.png" alt="Usuário" class="w-9 h-9 rounded-full border border-neutral-800" />
+              <img src="assets/icon.png" alt="Usuário" class="w-9 h-9 rounded-full border border-neutral-800" />
+            </div>
+            <p class="text-sm text-neutral-400 max-w-xs"><span class="text-neutral-200 font-medium">Produtores</span> já registraram mais de <span class="text-primary-300 font-semibold">+25k</span> atividades no ciclo de cultivo.</p>
+          </div>
+        </div>
+        <div class="lg:col-span-6 relative">
+          <div class="relative aspect-[4/5] rounded-2xl border border-neutral-800 bg-neutral-900/40 backdrop-blur-sm overflow-hidden shadow-2xl shadow-primary-500/10">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary-500/20 via-transparent to-accent-400/10 mix-blend-overlay"></div>
+            <div class="p-6 h-full flex flex-col justify-between">
+              <div class="space-y-4">
+                <h3 class="font-semibold text-lg flex items-center gap-2"><span class="inline-block w-2.5 h-2.5 rounded-full bg-primary-400 animate-pulse"></span> Visão Geral</h3>
+                <ul class="text-sm space-y-2 text-neutral-300">
+                  <li class="flex items-start gap-2"><span class="text-primary-300">•</span> Estoque de sementes organizado com validade.</li>
+                  <li class="flex items-start gap-2"><span class="text-primary-300">•</span> Registro rápido de atividades (plantio, irrigação, poda...).</li>
+                  <li class="flex items-start gap-2"><span class="text-primary-300">•</span> Galeria de fotos para evolução visual do cultivo.</li>
+                  <li class="flex items-start gap-2"><span class="text-primary-300">•</span> Estatísticas de produtividade e histórico.</li>
+                  <li class="flex items-start gap-2"><span class="text-primary-300">•</span> Planejamento da colheita e anotações de rendimento.</li>
+                </ul>
+              </div>
+              <div class="mt-6">
+                <div class="grid grid-cols-3 gap-4 text-center">
+                  <div class="p-3 rounded-lg bg-neutral-800/60 border border-neutral-700/60"><p class="text-xl font-bold text-primary-300">25k+</p><p class="text-[11px] uppercase tracking-wide text-neutral-400 font-medium">Atividades</p></div>
+                  <div class="p-3 rounded-lg bg-neutral-800/60 border border-neutral-700/60"><p class="text-xl font-bold text-primary-300">8k+</p><p class="text-[11px] uppercase tracking-wide text-neutral-400 font-medium">Fotos</p></div>
+                  <div class="p-3 rounded-lg bg-neutral-800/60 border border-neutral-700/60"><p class="text-xl font-bold text-primary-300">99%</p><p class="text-[11px] uppercase tracking-wide text-neutral-400 font-medium">Satisfação</p></div>
+                </div>
+              </div>
+              <div class="mt-6 flex items-center justify-between text-xs text-neutral-500">
+                <span>Dados ilustrativos</span>
+                <span>&copy; 2025 Cooltive</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-10 -left-10 w-56 h-56 bg-primary-500/30 rounded-full blur-3xl opacity-50"></div>
+          <div class="absolute -top-8 -right-8 w-72 h-72 bg-accent-400/20 rounded-full blur-3xl opacity-40"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-28 bg-neutral-950 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(108,199,26,0.08),transparent_70%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Recursos que <span class="text-primary-400">aceleram</span> sua produção</h2>
+        <p class="text-neutral-400 mt-4">Do plantio à colheita, cada detalhe registrado de forma simples, estruturada e visual.</p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card -->
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">
+              ⓢ
+            </div>
+            <h3 class="font-semibold text-lg">Estoque de Sementes</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Controle variedades, lotes, validade e quantidade disponível para planejar novos ciclos sem surpresas.</p>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">⚑</div>
+            <h3 class="font-semibold text-lg">Registro de Atividades</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Plantio, irrigação, fertilização, poda, controle fitossanitário e muito mais em poucos toques.</p>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">📷</div>
+            <h3 class="font-semibold text-lg">Galeria de Fotos</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Organize imagens por lote ou cultivo e acompanhe a evolução visual com facilidade.</p>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+            <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">📊</div>
+            <h3 class="font-semibold text-lg">Estatísticas e Insights</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Produtividade, histórico e comparações para otimizar cada decisão de manejo.</p>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">🌱</div>
+            <h3 class="font-semibold text-lg">Planejamento de Colheita</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Acompanhe ciclos e preveja janelas ideais para colher com maior rendimento.</p>
+          </div>
+        </div>
+        <div class="group relative p-6 rounded-2xl border border-neutral-800 bg-neutral-900/40 hover:bg-neutral-900/70 transition overflow-hidden">
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition bg-gradient-to-br from-primary-500/10 via-transparent to-accent-400/10"></div>
+          <div class="relative flex flex-col gap-4">
+            <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-primary-500 to-accent-400 flex items-center justify-center text-neutral-900 font-bold text-lg shadow">☁️</div>
+            <h3 class="font-semibold text-lg">Backup em Nuvem (PRO)</h3>
+            <p class="text-sm text-neutral-400 leading-relaxed">Sincronize entre múltiplos dispositivos e nunca perca seu histórico.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits / Comparison -->
+  <section id="benefits" class="py-24 bg-neutral-900/40 relative">
+    <div class="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.03),transparent)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid lg:grid-cols-12 gap-14 items-start">
+        <div class="lg:col-span-5 space-y-6">
+          <h2 class="text-3xl font-bold leading-tight">Reduza desperdícios e aumente a <span class="text-primary-400">produtividade</span></h2>
+          <p class="text-neutral-400">Com dados centralizados você identifica gargalos, melhora previsões e documenta o que funciona em cada safra.</p>
+          <ul class="space-y-4 text-sm text-neutral-300">
+            <li class="flex gap-3"><span class="text-primary-400">✓</span> Histórico confiável de cada lote.</li>
+            <li class="flex gap-3"><span class="text-primary-400">✓</span> Melhor planejamento de insumos.</li>
+            <li class="flex gap-3"><span class="text-primary-400">✓</span> Evidências para certificações.</li>
+            <li class="flex gap-3"><span class="text-primary-400">✓</span> Decisões rápidas baseadas em registros reais.</li>
+          </ul>
+          <div class="pt-4">
+            <a href="#pricing" class="inline-flex items-center gap-2 text-sm font-semibold px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-400 text-neutral-900 shadow focus:outline-none focus:ring-2 focus:ring-primary-400/50 focus:ring-offset-2 focus:ring-offset-neutral-950">Ver planos</a>
+          </div>
+        </div>
+        <div class="lg:col-span-7">
+          <div class="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950/80">
+            <table class="w-full text-sm">
+              <thead class="bg-neutral-900/60 text-neutral-300">
+                <tr>
+                  <th class="text-left font-semibold px-6 py-4">Recurso</th>
+                  <th class="text-center font-semibold px-6 py-4">Free</th>
+                  <th class="text-center font-semibold px-6 py-4">PRO</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-neutral-800">
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Registro de atividades ilimitado</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Estoque de sementes</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Galeria de fotos</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Estatísticas básicas</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Backup e sincronização em nuvem</td>
+                  <td class="text-center px-6 py-4 text-neutral-600">–</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Estatísticas avançadas e exportação</td>
+                  <td class="text-center px-6 py-4 text-neutral-600">–</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+                <tr class="hover:bg-neutral-900/40">
+                  <td class="px-6 py-4">Acesso multi-dispositivo</td>
+                  <td class="text-center px-6 py-4 text-neutral-600">–</td>
+                  <td class="text-center px-6 py-4">✓</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-28 bg-neutral-950 relative">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,186,28,0.08),transparent_70%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Escolha o plano ideal</h2>
+        <p class="text-neutral-400 mt-4">Comece grátis. Evolua para o PRO e tenha sincronização e segurança de dados.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 items-stretch">
+        <!-- Free -->
+        <div class="relative flex flex-col rounded-2xl border border-neutral-800 bg-neutral-900/50 p-8">
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold">Free</h3>
+            <p class="text-sm text-neutral-400 mt-2">Perfeito para iniciar e centralizar o básico do cultivo.</p>
+          </div>
+          <div class="flex items-end gap-2 mb-6">
+            <p class="text-4xl font-bold">R$0</p>
+            <span class="text-neutral-400 text-sm mb-2">para sempre</span>
+          </div>
+          <ul class="space-y-3 text-sm flex-1">
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Atividades ilimitadas</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Estoque de sementes</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Galeria de fotos</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Estatísticas básicas</li>
+            <li class="flex gap-2 text-neutral-500"><span class="text-neutral-500">–</span> Backup em nuvem</li>
+            <li class="flex gap-2 text-neutral-500"><span class="text-neutral-500">–</span> Sincronização multi-dispositivo</li>
+          </ul>
+          <div class="mt-8">
+            <a href="https://play.google.com/store/apps/details?id=com.cooltive" target="_blank" class="inline-flex justify-center w-full items-center gap-2 px-5 py-3 rounded-lg bg-neutral-800 hover:bg-neutral-700 text-neutral-200 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-950">Começar grátis</a>
+          </div>
+        </div>
+        <!-- PRO -->
+        <div class="relative flex flex-col rounded-2xl border-2 border-primary-500 bg-neutral-900/70 p-8 shadow-xl shadow-primary-500/20">
+          <div class="absolute -top-4 left-6 px-3 py-1 rounded-full bg-primary-500 text-neutral-900 text-xs font-semibold tracking-wide shadow">Mais Popular</div>
+          <div class="mb-6">
+            <h3 class="text-xl font-semibold flex items-center gap-2">PRO <span class="text-xs font-medium px-2 py-0.5 rounded bg-primary-500/20 text-primary-300 border border-primary-500/30">Nuvem</span></h3>
+            <p class="text-sm text-neutral-300 mt-2">Sincronização, segurança e insights para escala profissional.</p>
+          </div>
+          <div class="flex items-end gap-2 mb-6">
+            <p class="text-4xl font-bold">R$30</p>
+            <span class="text-neutral-400 text-sm mb-2">/mês</span>
+          </div>
+          <ul class="space-y-3 text-sm flex-1">
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Tudo do plano Free</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Backup e sincronização em nuvem</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Estatísticas avançadas</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Acesso multi-dispositivo</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Exportação de dados</li>
+            <li class="flex gap-2"><span class="text-primary-400">✓</span> Suporte prioritário</li>
+          </ul>
+          <div class="mt-8">
+            <a href="https://play.google.com/store/apps/details?id=com.cooltive" target="_blank" class="group inline-flex justify-center w-full items-center gap-2 px-5 py-3 rounded-lg bg-primary-500 hover:bg-primary-400 text-neutral-900 text-sm font-semibold shadow focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-neutral-950">Assinar PRO
+              <svg class="w-4 h-4 transition group-hover:translate-x-0.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-neutral-900/40 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(108,199,26,0.06),transparent_70%)]"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl font-bold">O que produtores relatam</h2>
+        <p class="text-neutral-400 mt-4">Produtividade maior, menos improviso e mais controle.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-6 rounded-2xl border border-neutral-800 bg-neutral-950/60 flex flex-col gap-4">
+          <p class="text-neutral-300 text-sm leading-relaxed">“Antes eu esquecia etapas e datas de aplicação. Com o Cooltive tudo fica registrado e as decisões ficaram muito mais assertivas.”</p>
+          <div class="flex items-center gap-3 pt-2">
+            <img src="assets/icon.png" alt="Avatar" class="w-10 h-10 rounded-full border border-neutral-800" />
+            <div>
+              <p class="text-sm font-semibold">Marcos A.</p>
+              <p class="text-[11px] text-neutral-500">Produtor de hortaliças</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl border border-neutral-800 bg-neutral-950/60 flex flex-col gap-4">
+          <p class="text-neutral-300 text-sm leading-relaxed">“Consigo planejar melhor o uso de sementes e evitar perdas. O histórico virou referência para novas safras.”</p>
+          <div class="flex items-center gap-3 pt-2">
+            <img src="assets/icon.png" alt="Avatar" class="w-10 h-10 rounded-full border border-neutral-800" />
+            <div>
+              <p class="text-sm font-semibold">Luciana R.</p>
+              <p class="text-[11px] text-neutral-500">Cultivo familiar</p>
+            </div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl border border-neutral-800 bg-neutral-950/60 flex flex-col gap-4">
+          <p class="text-neutral-300 text-sm leading-relaxed">“O plano PRO me dá tranquilidade. Uso no celular e tablet e tudo sincroniza certinho.”</p>
+          <div class="flex items-center gap-3 pt-2">
+            <img src="assets/icon.png" alt="Avatar" class="w-10 h-10 rounded-full border border-neutral-800" />
+            <div>
+              <p class="text-sm font-semibold">Elisa F.</p>
+              <p class="text-[11px] text-neutral-500">Produção de flores</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-24 bg-neutral-950 relative">
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.02),transparent)]"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <h2 class="text-3xl font-bold">Perguntas frequentes</h2>
+        <p class="text-neutral-400 mt-4">Dúvidas comuns sobre o Cooltive.</p>
+      </div>
+      <div class="space-y-6">
+        <details class="group border border-neutral-800 rounded-xl bg-neutral-900/40 p-5">
+          <summary class="flex cursor-pointer items-center justify-between font-medium list-none">
+            <span>O plano Free tem limite de registros?</span>
+            <span class="transition group-open:rotate-90 text-primary-400">›</span>
+          </summary>
+          <p class="text-sm text-neutral-400 mt-3 leading-relaxed">Não. Você pode registrar quantas atividades quiser. Recursos de nuvem e análises avançadas ficam restritos ao PRO.</p>
+        </details>
+        <details class="group border border-neutral-800 rounded-xl bg-neutral-900/40 p-5">
+          <summary class="flex cursor-pointer items-center justify-between font-medium list-none">
+            <span>Posso usar em mais de um dispositivo?</span>
+            <span class="transition group-open:rotate-90 text-primary-400">›</span>
+          </summary>
+          <p class="text-sm text-neutral-400 mt-3 leading-relaxed">Sim, no plano PRO seus dados ficam na nuvem e sincronizam entre múltiplos aparelhos.</p>
+        </details>
+        <details class="group border border-neutral-800 rounded-xl bg-neutral-900/40 p-5">
+          <summary class="flex cursor-pointer items-center justify-between font-medium list-none">
+            <span>Meus dados ficam seguros?</span>
+            <span class="transition group-open:rotate-90 text-primary-400">›</span>
+          </summary>
+          <p class="text-sm text-neutral-400 mt-3 leading-relaxed">Utilizamos práticas modernas de armazenamento seguro e backups redundantes (no plano PRO).</p>
+        </details>
+        <details class="group border border-neutral-800 rounded-xl bg-neutral-900/40 p-5">
+          <summary class="flex cursor-pointer items-center justify-between font-medium list-none">
+            <span>Posso exportar meus dados?</span>
+            <span class="transition group-open:rotate-90 text-primary-400">›</span>
+          </summary>
+          <p class="text-sm text-neutral-400 mt-3 leading-relaxed">Sim, no plano PRO você pode exportar relatórios e históricos para planilhas.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="py-24 bg-neutral-900/60 relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(108,199,26,0.05),transparent_70%)]"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold leading-tight">Pronto para elevar a gestão do seu cultivo?</h2>
+      <p class="text-neutral-400 max-w-2xl mx-auto mt-4">Registre tudo, acompanhe resultados e tome melhores decisões. Comece gratuito e evolua quando quiser.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <a href="https://play.google.com/store/apps/details?id=com.cooltive" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-primary-500 hover:bg-primary-400 text-neutral-900 font-semibold text-sm shadow-lg shadow-primary-500/30 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-neutral-950">Baixar App</a>
+        <a href="#pricing" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg border border-neutral-700 hover:border-primary-400/60 hover:text-primary-300 font-medium text-sm text-neutral-200 focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-950">Ver Planos</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-10 bg-neutral-950 border-t border-neutral-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-6 items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/icon.png" alt="Cooltive" class="h-8 w-8 rounded" />
+        <span class="font-semibold">Cooltive</span>
+      </div>
+      <p class="text-neutral-500">&copy; 2025 Cooltive. Todos os direitos reservados.</p>
+      <div class="flex gap-4 text-neutral-400">
+        <a href="#features" class="hover:text-primary-300">Recursos</a>
+        <a href="#pricing" class="hover:text-primary-300">Planos</a>
+        <a href="#faq" class="hover:text-primary-300">FAQ</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
